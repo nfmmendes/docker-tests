@@ -6,14 +6,24 @@
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
+    <button @click="loadData"> Load data</button>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'PageBody',
   props: {
     msg: String
+  },
+  methods: {
+    async loadData() {
+      
+      var posts = await axios.get('http://localhost:8080/request')
+      console.log(posts)
+    }
   }
 }
 </script>
